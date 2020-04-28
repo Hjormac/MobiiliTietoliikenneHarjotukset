@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
     private String url;
-    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textView = findViewById(R.id.text);
-        editText = findViewById(R.id.editTextField);
+
 
 
 
@@ -40,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
     public void getUrl(View view) {
 
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-        url = editText.getText().toString();
+        EditText eText = findViewById(R.id.editTextField);
+        url = eText.getText().toString();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
